@@ -1,0 +1,16 @@
+services:
+  ping:
+    image: andou1984/dt01-tspingpong
+    ports:
+      - "${PING_EXPOSED_PORT}:80"
+    environment:
+      EXPOSED_PORT: 80
+      MESSAGE: PiNg
+
+  pong:
+    image: andou1984/dt01-tspingpong
+    ports:
+      - "${PONG_EXPOSED_PORT}:80"
+    environment:
+      EXPOSED_PORT: 80
+      MESSAGE: pOnG

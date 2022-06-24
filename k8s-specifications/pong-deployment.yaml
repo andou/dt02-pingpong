@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pong
+  name: pong
+  namespace: pingpong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pong
+  template:
+    metadata:
+      labels:
+        app: pong
+    spec:
+      containers:
+        - image: andou1984/dt01-tspingpong
+          name: pong
+          ports:
+            - containerPort: 80
+              name: pong
+          env:
+            - name: MESSAGE
+              value: "PoNg"
